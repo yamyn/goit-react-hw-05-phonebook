@@ -1,19 +1,20 @@
 .form {
     margin: 0 auto;
-    width: 350px;
-    padding: 0 0 40px;
-    border: 1px solid #3f3b3b;
-    border-radius: 10px;
-    background-color: #e7ecf2;
+    width: 100%;
+    padding: 10px 0 20px;
 }
 
 .form p {
+    width: 350px;
+    text-align: left;
+    margin: 0 auto;
     font-size: 18px;
     line-height: 22px;
     font-weight: bold;
 }
 
 .form input {
+    width: 350px;
     margin-bottom: 15px;
     height: 20px;
     padding-left: 10px;
@@ -23,4 +24,10 @@
     display: block;
     margin: 0 auto;
     height: 30px;
+    background-color: #0039d4;
+    width: 350px;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
 }

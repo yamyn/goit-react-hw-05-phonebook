@@ -1,12 +1,14 @@
-.table {
-    width: 500px;
-    margin: 0 auto;
+.list {
+    padding: 0;
 }
 
-.row {
-    height: 50px;
+.item {
+    display: flex;
+    list-style: none;
+    text-align: right;
+    justify-content: space-between;
 }
 
-.headrow {
-    background-color: #00bcd4;
+.item: not(: last-child) {
+    margin-bottom: 5px;
 }

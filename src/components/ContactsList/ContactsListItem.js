@@ -1,23 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ContactsListItem({ index, name, number, onDeleteContact }) {
+function ContactsListItem({ name, number, onDeleteContact }) {
     return (
         <>
-            <td>{index}</td>
-            <td>{name}</td>
-            <td>{number}</td>
-            <td>
-                <button type='button' onClick={onDeleteContact}>
+            <div>{name}</div>
+            <div>{number}</div>
+            <div>
+                <button type="button" onClick={onDeleteContact}>
                     Delete
                 </button>
-            </td>
+            </div>
         </>
     );
 }
 
 ContactsListItem.propTypes = {
-    index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
     onDeleteContact: PropTypes.func.isRequired,

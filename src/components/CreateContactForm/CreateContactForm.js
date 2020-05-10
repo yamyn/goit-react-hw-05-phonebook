@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { form, button } from './CreateContactForm.module.css';
+import { form, button, wrap } from './CreateContactForm.module.css';
 
 export default class TaskEditor extends Component {
     static propTypes = {
@@ -33,7 +33,7 @@ export default class TaskEditor extends Component {
 
         return (
             <form onSubmit={this.handleSubmit} className={form}>
-                <div>
+                <div className={wrap}>
                     <p>Name</p>
                     <input
                         type="text"
@@ -43,7 +43,7 @@ export default class TaskEditor extends Component {
                         name="name"
                     />
                 </div>
-                <div>
+                <div className={wrap}>
                     <p>Number</p>
                     <input
                         type="text"

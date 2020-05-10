@@ -10,7 +10,7 @@ import Filter from '../Filter/Filter';
 import CreateContactForm from '../CreateContactForm/CreateContactForm';
 
 const filterContacts = (contacts, filter) => {
-    return contacts.filter((contact) =>
+    return contacts.filter(contact =>
         contact.name.toLowerCase().includes(filter.toLowerCase()),
     );
 };
@@ -39,13 +39,13 @@ export default class App extends Component {
         }
     }
 
-    changeFilter = (event) => {
+    changeFilter = event => {
         this.setState({ filter: event.target.value });
     };
 
-    addContact = (contact) => {
+    addContact = contact => {
         const isUniqueName = this.state.contacts.some(
-            (savedContact) =>
+            savedContact =>
                 savedContact.name.toLowerCase() === contact.name.toLowerCase(),
         );
 
@@ -56,14 +56,14 @@ export default class App extends Component {
             ...contact,
             id: shortid.generate(),
         };
-        this.setState((state) => ({
+        this.setState(state => ({
             contacts: [...state.contacts, contactToAdd],
         }));
     };
 
-    deleteContact = (id) => {
-        this.setState((state) => ({
-            contacts: state.contacts.filter((contact) => contact.id !== id),
+    deleteContact = id => {
+        this.setState(state => ({
+            contacts: state.contacts.filter(contact => contact.id !== id),
         }));
     };
 
@@ -73,24 +73,26 @@ export default class App extends Component {
 
         return (
             <div className={styles.container}>
-                <h1>goit-react-hw-03-phonebook</h1>
-                <Section title='Phonebook'>
+                <h1>Phonebook</h1>
+                <Section title="">
                     <CreateContactForm onAddContact={this.addContact} />
                 </Section>
-                <Section title='Contacts'>
+                <Section title="">
                     {this.state.contacts.length > 2 && (
                         <Filter
                             value={filter}
                             onChangeFilter={this.changeFilter}
                         />
                     )}
+                </Section>
+                <Section title="">
                     {filteredContacts.length > 0 ? (
                         <ContactsList
                             contacts={filteredContacts}
                             onDeleteContact={this.deleteContact}
                         />
                     ) : (
-                        <Notification message='Contacts for query not found' />
+                        <Notification message="Contacts for query not found" />
                     )}
                 </Section>
             </div>
