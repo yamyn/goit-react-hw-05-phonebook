@@ -1,14 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { icon, button, wrap } from './ContactsList.module.css';
 
-function ContactsListItem({ name, number, onDeleteContact }) {
+function ContactsListItem({ name, number, onDeleteContact, index }) {
     return (
         <>
-            <div>{name}</div>
-            <div>{number}</div>
             <div>
-                <button type="button" onClick={onDeleteContact}>
-                    Delete
+                <span>
+                    {index}. {name}
+                </span>
+            </div>
+            <div className={wrap}>
+                <p>{number}</p>
+                <button
+                    type="button"
+                    onClick={onDeleteContact}
+                    className={button}
+                >
+                    <i className={`${icon} material-icons`}>close</i>
                 </button>
             </div>
         </>

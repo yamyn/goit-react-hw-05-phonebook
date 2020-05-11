@@ -1,21 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { list, item } from './ContactsList.module.css';
 import ContactsListItem from './ContactsListItem';
+import slideTransition from '../../transitions/slide.module.css';
 
 const ContactsList = ({ contacts, onDeleteContact }) => (
-    <ul className={list}>
-        {contacts.map(({ id, name, number }) => (
-            <li key={id} className={item}>
-                <ContactsListItem
-                    name={name}
-                    number={number}
-                    onDeleteContact={() => onDeleteContact(id)}
-                />
-            </li>
+    <TransitionGroup component="ul" className={list}>
+        {contacts.map(({ id, name, number }, index) => (
+            <CSSTransition
+                key={id}
+                timeout={300}
+                classNames={slideTransition}
+                unmountOnExit
+            >
+                <li key={id} className={item}>
+                    <ContactsListItem
+                        index={index + 1}
+                        name={name}
+                        number={number}
+                        onDeleteContact={() => onDeleteContact(id)}
+                    />
+                </li>
+            </CSSTransition>
         ))}
-    </ul>
+    </TransitionGroup>
 );
 
 ContactsList.propTypes = {

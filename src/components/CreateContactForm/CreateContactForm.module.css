@@ -4,30 +4,40 @@
     padding: 10px 0 20px;
 }
 
-.form p {
-    width: 350px;
-    text-align: left;
-    margin: 0 auto;
+.form p,
+.form input,
+.button {
+    width: 450px;
     font-size: 18px;
     line-height: 22px;
+}
+
+.form p {
+    text-align: left;
+    margin: 0 auto;
     font-weight: bold;
 }
 
 .form input {
-    width: 350px;
     margin-bottom: 15px;
-    height: 20px;
+    height: 30px;
     padding-left: 10px;
 }
 
 .button {
     display: block;
     margin: 0 auto;
-    height: 30px;
+    height: 40px;
     background-color: #0039d4;
-    width: 350px;
     border: 0;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
+    text-transform: uppercase;
+    transition: linear 200ms background-color;
+}
+
+.button:hover,
+.button:focus {
+    background-color: #0b48f0;
 }
