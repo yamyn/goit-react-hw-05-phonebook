@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import styles from './App.module.css';
 import slideTittleTransition from '../../transitions/slide-500ms.module.css';
-import slideTransition from '../../transitions//slide.module.css';
+import slideTransition from '../../transitions/slide.module.css';
 
 import Section from '../Section/Section';
 import Notification from '../Notification/Notification';
@@ -38,21 +38,18 @@ export default class App extends Component {
         if (savedContacts) {
             this.setState({ contacts: JSON.parse(savedContacts) });
         }
-        return;
     }
 
     componentDidUpdate(prevProps, prevState) {
+        const { contacts } = this.state;
         if (prevState.alert.isShow) {
             this.setState({
                 alert: { isShow: false, message: '' },
             });
         }
 
-        if (prevState.contacts !== this.state.contacts) {
-            localStorage.setItem(
-                'contacts',
-                JSON.stringify(this.state.contacts),
-            );
+        if (prevState.contacts !== contacts) {
+            localStorage.setItem('contacts', JSON.stringify(contacts));
         }
     }
 
@@ -87,6 +84,7 @@ export default class App extends Component {
     deleteContact = id => {
         this.setState(state => ({
             contacts: state.contacts.filter(contact => contact.id !== id),
+            filter: '',
         }));
     };
 
@@ -110,8 +108,8 @@ export default class App extends Component {
                 </Section>
 
                 <CSSTransition
-                    in={this.state.contacts.length > 2}
-                    timeout={300}
+                    in={contacts.length >= 2}
+                    timeout={250}
                     classNames={slideTransition}
                     unmountOnExit
                 >
@@ -136,7 +134,7 @@ export default class App extends Component {
 
                 <CSSTransition
                     in={alert.isShow}
-                    timeout={300}
+                    timeout={250}
                     classNames={slideTransition}
                     unmountOnExit
                 >

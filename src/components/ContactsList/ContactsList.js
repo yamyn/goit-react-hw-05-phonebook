@@ -11,7 +11,7 @@ const ContactsList = ({ contacts, onDeleteContact }) => (
         {contacts.map(({ id, name, number }, index) => (
             <CSSTransition
                 key={id}
-                timeout={300}
+                timeout={250}
                 classNames={slideTransition}
                 unmountOnExit
             >

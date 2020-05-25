@@ -4,7 +4,7 @@
     padding: 10px 0 20px;
 }
 
-.form p,
+.form label,
 .form input,
 .button {
     width: 450px;
@@ -12,10 +12,11 @@
     line-height: 22px;
 }
 
-.form p {
-    text-align: left;
-    margin: 0 auto;
+.form label {
+    padding-left: 90px;
+    display: block;
     font-weight: bold;
+    text-align: left;
 }
 
 .form input {

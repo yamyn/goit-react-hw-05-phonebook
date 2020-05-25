@@ -6,10 +6,10 @@ const NumberFilter = ({ value, onChangeFilter }) => (
     <div className={filter}>
         <p>Find contacts by name</p>
         <input
-            type='text'
+            type="text"
             value={value}
             onChange={onChangeFilter}
-            placeholder='Enter name...'
+            placeholder="Enter name..."
         />
     </div>
 );
